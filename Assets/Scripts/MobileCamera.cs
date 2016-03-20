@@ -16,13 +16,18 @@ public class MobileCamera : MonoBehaviour
     public float maxPitchAngle = 30f;
     public float yawAngle;
 
-
-
+  public bool disabled{get;set;}
+  void Awake(){
+    disabled = true;
+  }
     void Update()
     {
+    if(disabled)
+      return;
+
         float pitchAdd, yawAdd;
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_STANDALONE_OSX || UNITY_STANDALONE_WIN
         pitchAdd = -Input.GetAxis("Mouse Y") * 0.5f;
         yawAdd = -Input.GetAxis("Mouse X") * 0.5f;
 #endif
