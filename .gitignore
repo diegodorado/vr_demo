@@ -12,6 +12,7 @@ ProjectSettings.txt
 *.exe
 *_Data
 *.apk
+*.app
 
 # ----[ Visual Studio / MonoDevelop generated ]------- #
 
