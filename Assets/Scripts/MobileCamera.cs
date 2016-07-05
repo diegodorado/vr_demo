@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class MobileCamera : MonoBehaviour
 {
@@ -15,13 +16,18 @@ public class MobileCamera : MonoBehaviour
     public float minPitchAngle = -30f;
     public float maxPitchAngle = 30f;
     public float yawAngle;
+  private Toggle toggle;
 
   public bool disabled{get;set;}
   void Awake(){
-    disabled = true;
+    disabled = false;
+    toggle = FindObjectOfType<Toggle>();
   }
     void Update()
     {
+    if(Input.GetKeyDown(KeyCode.Escape))
+      toggle.isOn = !toggle.isOn;
+
     if(disabled)
       return;
 
